@@ -1,5 +1,6 @@
 package VerticalScrolling;
 
+//import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -32,13 +33,7 @@ public class Scroll {
         driver.findElements(By.id("android:id/text1")).get(12).click();
         //scroll to Spinner
        //  AndroidElement list=(AndroidElement) driver.findElement(By.id("android:id/text1"));
-        MobileElement listItem=(MobileElement) driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+ "new UiSelector().description(\"Switches\");"));
-        listItem.click();
-
-    }
-
-    private static class MobileElement {
-        public void click() {
-        }
+        //WebElement listItem= driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+ "new UiSelector().description(\"Switches\");"));
+        driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"switches\").instance(0))")).click();
     }
 }
